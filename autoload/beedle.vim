@@ -18,6 +18,9 @@ function! beedle#delete(bang)
     if !bufexists(l:b)
       continue
     endif
+    if !buflisted(l:b)
+      continue
+    endif
     if !a:bang
       if has_key(l:visible, l:b)
         continue
