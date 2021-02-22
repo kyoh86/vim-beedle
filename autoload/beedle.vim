@@ -25,7 +25,10 @@ function! beedle#delete(bang)
       if has_key(l:visible, l:b)
         continue
       endif
-      if getbufvar(l:b, "&mod")
+      if getbufvar(l:b, '&buftype') ==# 'terminal'
+        continue
+      endif
+      if getbufvar(l:b, '&mod')
         continue
       endif
     endif
